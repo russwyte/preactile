@@ -1,13 +1,13 @@
-package anode
+package preactile
 
-import anode.impl.Anode
+import preactile.impl.Preactile
 
 import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.scalajs.js.{Dictionary, UndefOr}
 
 //noinspection ScalaUnusedSymbol
-trait AnodeComponent[Props, State]:
+trait PreactileComponent[Props, State]:
 
   type P = Props
 
@@ -17,7 +17,7 @@ trait AnodeComponent[Props, State]:
 
   lazy val classForClass = ClassSelector.makeCssClass(this.getClass.getName)
 
-  type Instance = AnodeInstance[Props, State]
+  type Instance = preactile.Instance[Props, State]
 
   def didMount(instance: Instance): Unit = ()
 
@@ -42,7 +42,7 @@ trait AnodeComponent[Props, State]:
       )*
     )
 
-  def apply(props: Props): VNode = Anode
+  def apply(props: Props): VNode = Preactile
     .h(instanceConstructor, baseDictionary(props))
 
   def addSelectors(n: VNode, facade: InstanceFacade[Props, State]): VNode =
@@ -59,7 +59,7 @@ trait AnodeComponent[Props, State]:
       case _ => n
     end match
   end addSelectors
-end AnodeComponent
+end PreactileComponent
 
-object AnodeComponent:
-  given Conversion[AnodeComponent[Unit, ?], VNode] = _.apply(())
+object PreactileComponent:
+  given Conversion[PreactileComponent[Unit, ?], VNode] = _.apply(())

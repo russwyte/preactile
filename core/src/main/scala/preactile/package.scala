@@ -1,15 +1,15 @@
-import anode.dsl.*
-import anode.dsl.css.Styles
-import anode.impl.Anode
-import anode.impl.Preact.Fragment
+import preactile.dsl.*
+import preactile.dsl.css.Styles
+import preactile.impl.Preactile
+import preactile.impl.Preact.Fragment
 import org.scalajs.dom
 
 import scala.language.implicitConversions
 import scala.scalajs.js
 
-package object anode:
+package object preactile:
   import scala.scalajs.js.JSConverters.*
-  private[anode] lazy val constructors = js.Dictionary[js.Dynamic]()
+  private[preactile] lazy val constructors = js.Dictionary[js.Dynamic]()
 
   lazy val Preact: impl.Preact.type = impl.Preact
 
@@ -27,7 +27,7 @@ package object anode:
   dom.Event
   def log(m: js.Any, a: Any*): Unit = dom.window.console.log(m, a.map(_.asInstanceOf[js.Any])*)
 
-  def fragment(children: Child*): VNode = Anode.h(Fragment, null, children.toJSArray)
+  def fragment(children: Child*): VNode = Preactile.h(Fragment, null, children.toJSArray)
 
   def when(p: => Boolean) = When(p)
 
@@ -53,6 +53,6 @@ package object anode:
     def rerender(): Unit = Preact.rerender()
 
   object dictionaryNames:
-    val PropsFieldName = "_anode_props"
-    val StateFieldName = "_anode_state"
-end anode
+    val PropsFieldName = "_preactile_props"
+    val StateFieldName = "_preactile_state"
+end preactile

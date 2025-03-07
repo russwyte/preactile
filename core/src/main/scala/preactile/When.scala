@@ -1,4 +1,4 @@
-package anode
+package preactile
 
 class When(p: => Boolean):
   def apply[A, B <: A](a: => A, b: B): A = if p then a else b

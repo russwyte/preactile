@@ -1,6 +1,6 @@
-package anode.dsl
+package preactile.dsl
 
-import anode.dsl.css.Styles.DeclarationConstructor
+import preactile.dsl.css.Styles.DeclarationConstructor
 
 package object css:
   type D[T] = DeclarationConstructor[T]

@@ -1,13 +1,13 @@
-package anode
+package preactile
 
-import anode.impl.VNodeJS
+import preactile.impl.VNodeJS
 
 import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.scalajs.js.UndefOr
 import scala.scalajs.js.annotation.JSName
 
-trait Component[Props] extends AnodeComponent[Props, Nothing]:
+trait Component[Props] extends PreactileComponent[Props, Nothing]:
   theComponent =>
 
   def render(props: Props): VNode
@@ -39,7 +39,7 @@ trait Component[Props] extends AnodeComponent[Props, Nothing]:
         oldProps = lookupProps(oldProps),
         oldState = lookupState(oldState),
         instance = this,
-        oldInstance = snapshot.asInstanceOf[UndefOr[AnodeComponent[Props, Nothing]#Instance]],
+        oldInstance = snapshot.asInstanceOf[UndefOr[PreactileComponent[Props, Nothing]#Instance]],
       )
 
     override def componentDidCatch(e: js.Error): Unit = didCatch(e, this)

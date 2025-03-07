@@ -1,14 +1,14 @@
-package anode
+package preactile
 
-import anode.dsl.css.Styles.{DeclarationOrSelector, KeyFrames, MediaQuery}
-import anode.impl.Preact.ChildJS
-import anode.impl.VNodeJS
+import preactile.dsl.css.Styles.{DeclarationOrSelector, KeyFrames, MediaQuery}
+import preactile.impl.Preact.ChildJS
+import preactile.impl.VNodeJS
 import org.scalajs.dom
 import org.scalajs.dom.Element
 
 import scala.language.implicitConversions
 import scala.scalajs.js
-import anode.impl.Preact.ComponentChildren
+import preactile.impl.Preact.ComponentChildren
 
 sealed trait Arg:
   self =>

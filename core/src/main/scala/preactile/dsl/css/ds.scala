@@ -1,6 +1,7 @@
-package anode.dsl.css
+package preactile.dsl.css
+// spellchecker: disable
 
-import anode.Declaration
+import preactile.Declaration
 
 object ds:
 

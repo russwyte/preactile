@@ -1,6 +1,6 @@
-package anode
+package preactile
 
-import anode.dictionaryNames.*
+import preactile.dictionaryNames.*
 import org.scalajs.dom.Element
 
 import scala.scalajs.js
@@ -14,7 +14,7 @@ import scala.scalajs.js.annotation.JSName
   * @tparam Props
   * @tparam State
   */
-trait AnodeInstance[Props, State] extends js.Any:
+trait Instance[Props, State] extends js.Any:
 
   @JSName("eProps")
   def props: Props
@@ -27,9 +27,9 @@ trait AnodeInstance[Props, State] extends js.Any:
 
   @JSName("eBase")
   def base: UndefOr[Element]
-end AnodeInstance
+end Instance
 
-abstract class InstanceFacade[Props, State] extends impl.ComponentJS with AnodeInstance[Props, State]:
+abstract class InstanceFacade[Props, State] extends impl.ComponentJS with Instance[Props, State]:
   theFacade =>
 
   @JSName("eBase")

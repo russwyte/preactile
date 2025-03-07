@@ -1,9 +1,9 @@
-package anode
+package preactile
 
 import org.scalajs.dom
 
 trait ClassSelector:
-  comp: AnodeComponent[?, ?] =>
+  comp: PreactileComponent[?, ?] =>
   def selector = s".${comp.classForClass}"
 
   def addClass(e: dom.Element): Unit = if !e.classList.contains(classForClass) then e.classList.add(classForClass)

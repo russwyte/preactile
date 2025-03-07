@@ -1,10 +1,10 @@
-package anode
+package preactile
 
 import org.scalajs.dom
 
 trait InstanceDataSelector:
-  comp: AnodeComponent[?, ?] =>
-  val attributeName = s"data-anode-$classForClass"
+  comp: PreactileComponent[?, ?] =>
+  val attributeName = s"data-preactile-$classForClass"
   def extractAttributeValue(instance: comp.Instance): String
   def selector(attributeValue: String) = s"[$attributeName='$attributeValue']"
 

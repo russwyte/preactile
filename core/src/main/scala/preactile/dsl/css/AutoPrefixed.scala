@@ -1,4 +1,4 @@
-package anode.dsl.css
+package preactile.dsl.css
 
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue

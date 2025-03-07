@@ -1,7 +1,7 @@
-package anode.impl
+package preactile.impl
 
-import anode.*
-import anode.impl.Preact.AnyDictionary
+import preactile.*
+import Preact.AnyDictionary
 import org.scalajs.dom
 
 import scala.language.implicitConversions
@@ -42,7 +42,7 @@ object Preact extends js.Object:
   def rerender(): Unit = js.native
 end Preact
 
-object Anode:
+object Preactile:
 
   def h(`type`: js.Dynamic, params: AnyDictionary, children: js.Array[Child]): VNodeJS =
     Preact.h(`type`, params, children.map(_.value))
@@ -53,4 +53,4 @@ object Anode:
   def h(`type`: js.Dynamic, params: AnyDictionary): VNodeJS = Preact.h(`type`, params)
 
   def h(`type`: String, params: AnyDictionary): VNodeJS = Preact.h(`type`, params)
-end Anode
+end Preactile

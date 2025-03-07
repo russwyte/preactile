@@ -1,7 +1,9 @@
-package anode.dsl.css
+package preactile.dsl.css
 
-import anode.Declaration
-import anode.dsl.css.ds.*
+// spellchecker: disable
+
+import preactile.Declaration
+import preactile.dsl.css.ds.*
 
 import scala.scalajs.js
 
@@ -66,7 +68,7 @@ object Styles:
       Declaration(property, s"var($n${if fallback.nonEmpty then s", $fallback" else ""})")
   end DeclarationConstructor
 
-  private[anode] case class SimpleConstructor[T](property: String) extends DeclarationConstructor[T](property)
+  private[preactile] case class SimpleConstructor[T](property: String) extends DeclarationConstructor[T](property)
 
   def apply[T](name: String): D[T] = SimpleConstructor[T](name)
 

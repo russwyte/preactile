@@ -1,13 +1,13 @@
-package anode
+package preactile
 
-import anode.impl.VNodeJS
+import preactile.impl.VNodeJS
 
 import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.scalajs.js.UndefOr
 import scala.scalajs.js.annotation.JSName
 
-trait StatefulComponent[Props, State] extends AnodeComponent[Props, State]:
+trait StatefulComponent[Props, State] extends PreactileComponent[Props, State]:
   theComponent =>
   def initialState(props: Props): State
 

@@ -1,6 +1,6 @@
-package anode.impl
+package preactile.impl
 
-import anode.VNode
+import preactile.VNode
 import org.scalajs.dom
 
 import scala.scalajs.js

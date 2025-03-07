@@ -1,7 +1,7 @@
-package anode.dsl.css
+package preactile.dsl.css
 
-import anode.dsl.css.Styles.{DeclarationOrSelector, KeyFrames, MediaQuery, Selector}
-import anode.{Attribute, ClassSelector}
+import preactile.dsl.css.Styles.{DeclarationOrSelector, KeyFrames, MediaQuery, Selector}
+import preactile.{Attribute, ClassSelector}
 import org.scalajs.dom
 
 import scala.scalajs.concurrent.JSExecutionContext

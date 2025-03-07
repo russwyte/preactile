@@ -1,4 +1,4 @@
-package anode.impl
+package preactile.impl
 
 import org.scalajs.dom
 

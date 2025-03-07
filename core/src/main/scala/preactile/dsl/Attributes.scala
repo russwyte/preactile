@@ -1,6 +1,6 @@
-package anode.dsl
+package preactile.dsl
 
-import anode.{Attribute, Declaration}
+import preactile.{Attribute, Declaration}
 import org.scalajs.dom
 import org.scalajs.dom.*
 import org.scalajs.dom.Event

@@ -1,13 +1,15 @@
-package anode.dsl
+package preactile.dsl
 
-import anode.{Args, *}
-import anode.impl.Anode
+// spellchecker: disable
 
-private[anode] class ElementConstructor(name: String):
+import preactile.{Args, *}
+import preactile.impl.Preactile
+
+private[preactile] class ElementConstructor(name: String):
 
   def apply(acs: Arg*): VNode =
     val args = Args(acs)
-    Anode.h(name, args.attributeDictionary, args.children)
+    Preactile.h(name, args.attributeDictionary, args.children)
 
 sealed trait ElementSet:
   def element(name: String) = new ElementConstructor(name)

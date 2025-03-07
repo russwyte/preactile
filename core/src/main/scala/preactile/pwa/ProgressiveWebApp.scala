@@ -1,4 +1,4 @@
-package anode.pwa
+package preactile.pwa
 
 import org.scalajs.dom
 import org.scalajs.dom.VisibilityState
