@@ -2,7 +2,7 @@ package preactile.dsl
 
 // spellchecker: disable
 
-import preactile.{Args, *}
+import preactile.*
 import preactile.impl.Preactile
 
 private[preactile] class ElementConstructor(name: String):

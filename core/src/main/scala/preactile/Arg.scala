@@ -1,14 +1,16 @@
 package preactile
 
-import preactile.dsl.css.Styles.{DeclarationOrSelector, KeyFrames, MediaQuery}
-import preactile.impl.Preact.ChildJS
-import preactile.impl.VNodeJS
+import scala.scalajs.js
+
 import org.scalajs.dom
 import org.scalajs.dom.Element
 
-import scala.language.implicitConversions
-import scala.scalajs.js
+import preactile.dsl.css.Styles.DeclarationOrSelector
+import preactile.dsl.css.Styles.KeyFrames
+import preactile.dsl.css.Styles.MediaQuery
+import preactile.impl.Preact.ChildJS
 import preactile.impl.Preact.ComponentChildren
+import preactile.impl.VNodeJS
 
 sealed trait Arg:
   self =>

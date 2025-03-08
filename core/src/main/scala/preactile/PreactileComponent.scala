@@ -1,10 +1,10 @@
 package preactile
 
-import preactile.impl.Preactile
-
-import scala.language.implicitConversions
 import scala.scalajs.js
-import scala.scalajs.js.{Dictionary, UndefOr}
+import scala.scalajs.js.Dictionary
+import scala.scalajs.js.UndefOr
+
+import preactile.impl.Preactile
 
 //noinspection ScalaUnusedSymbol
 trait PreactileComponent[Props, State]:

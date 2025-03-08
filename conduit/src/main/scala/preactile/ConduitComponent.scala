@@ -1,23 +1,25 @@
 package preactile
 
-import preactile.impl.VNodeJS
-import conduit.*
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
 
-trait ConduitComponent[Props, Model <: AnyRef, State] extends PreactileComponent[Props, State]:
+import preactile.impl.VNodeJS
+
+import conduit.*
+
+trait ConduitComponent[Props, Model <: Product: Optics as optics, State] extends PreactileComponent[Props, State]:
   theComponent =>
-  def circuit: Conduit[Model]
+  val model = optics
+  def conduit: Conduit[Model]
   def render(props: Props, state: State): VNode
-  def modelReader: Lens[Model, State]
+  def lens: Lens[Model, State]
 
   def shouldUpdate(nextProps: Props, nextState: State, previous: Instance): Boolean =
     previous.state != nextState || previous.props != nextProps
   override lazy val instanceConstructor: js.Dynamic = js.constructorOf[CircuitInstance]
 
   final private class CircuitInstance extends InstanceFacade[Props, State]:
-    private var unsubscribe: Listener[Model, State] = Listener.unit(modelReader)
+    private var unsubscribe: Listener[Model, State] = Listener.unit(lens)
 
     override def componentDidUpdate(oldProps: js.Dynamic, oldState: js.Dynamic, snapshot: js.Dynamic): Unit =
       didUpdate(
@@ -34,9 +36,9 @@ trait ConduitComponent[Props, Model <: AnyRef, State] extends PreactileComponent
 
     override def componentWillMount(): Unit =
       willMount(this)
-      setState(circuit.get(circuit.zoom(modelReader)))
-      unsubscribe = circuit.unsafe.subscribe(modelReader)(x => setState(x))
-    override def componentWillUnmount(): Unit = circuit.unsafe.unsubscribe(unsubscribe)
+      setState(conduit.unsafe.zoom(lens))
+      unsubscribe = conduit.unsafe.subscribe(lens)(x => setState(x))
+    override def componentWillUnmount(): Unit = conduit.unsafe.unsubscribe(unsubscribe)
 
     override def shouldComponentUpdate(nextProps: js.Dynamic, nextState: js.Dynamic, context: js.Dynamic): Boolean =
       theComponent.shouldUpdate(lookupProps(nextProps), lookupState(nextState), this)

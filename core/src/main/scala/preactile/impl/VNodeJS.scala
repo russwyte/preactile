@@ -1,10 +1,11 @@
 package preactile.impl
 
-import preactile.VNode
-import org.scalajs.dom
-
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSName
+
+import org.scalajs.dom
+
+import preactile.VNode
 
 abstract class VNodeJS extends js.Object:
 

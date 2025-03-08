@@ -1,11 +1,12 @@
 package preactile
 
-import preactile.dictionaryNames.*
-import org.scalajs.dom.Element
-
 import scala.scalajs.js
 import scala.scalajs.js.UndefOr
 import scala.scalajs.js.annotation.JSName
+
+import org.scalajs.dom.Element
+
+import preactile.dictionaryNames.*
 
 /** Provides a type safe view of the underlying instance.
   *

@@ -1,11 +1,10 @@
 package preactile
 
-import preactile.impl.VNodeJS
-
-import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.scalajs.js.UndefOr
 import scala.scalajs.js.annotation.JSName
+
+import preactile.impl.VNodeJS
 
 trait StatefulComponent[Props, State] extends PreactileComponent[Props, State]:
   theComponent =>

@@ -1,12 +1,12 @@
 package preactile.pwa
 
-import org.scalajs.dom
-import org.scalajs.dom.VisibilityState
-
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.scalajs.js.timers.SetIntervalHandle
+
+import org.scalajs.dom
 import org.scalajs.dom.Navigator
+import org.scalajs.dom.VisibilityState
 
 trait ProgressiveWebApp:
   self =>

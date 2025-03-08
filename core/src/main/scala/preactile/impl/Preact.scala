@@ -1,17 +1,17 @@
 package preactile.impl
 
-import preactile.*
-import Preact.AnyDictionary
-import org.scalajs.dom
-
-import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
+
+import org.scalajs.dom
+
+import preactile.*
+import preactile.impl.Preact.AnyDictionary
 
 abstract class AorC
 
 @js.native
-@JSImport("preact", JSImport.Default)
+@JSImport("preact", JSImport.Namespace)
 object Preact extends js.Object:
 
   val Fragment: js.Dynamic = js.native

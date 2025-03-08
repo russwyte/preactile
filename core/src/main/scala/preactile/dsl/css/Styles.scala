@@ -2,10 +2,10 @@ package preactile.dsl.css
 
 // spellchecker: disable
 
+import scala.scalajs.js
+
 import preactile.Declaration
 import preactile.dsl.css.ds.*
-
-import scala.scalajs.js
 
 object Styles:
 

@@ -1,9 +1,10 @@
 package preactile.impl
 
-import org.scalajs.dom
-
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSImport, JSName}
+import scala.scalajs.js.annotation.JSImport
+import scala.scalajs.js.annotation.JSName
+
+import org.scalajs.dom
 
 @JSImport("preact", "Component")
 @js.native

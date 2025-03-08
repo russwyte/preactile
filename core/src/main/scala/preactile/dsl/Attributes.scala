@@ -1,13 +1,13 @@
 package preactile.dsl
 
-import preactile.{Attribute, Declaration}
-import org.scalajs.dom
-import org.scalajs.dom.*
-import org.scalajs.dom.Event
-
-import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.scalajs.js.Dictionary
+
+import org.scalajs.dom
+import org.scalajs.dom.*
+
+import preactile.Attribute
+import preactile.Declaration
 
 // spell-checker: disable
 

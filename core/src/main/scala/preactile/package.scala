@@ -1,11 +1,11 @@
-import preactile.dsl.*
-import preactile.dsl.css.Styles
-import preactile.impl.Preactile
-import preactile.impl.Preact.Fragment
+import scala.scalajs.js
+
 import org.scalajs.dom
 
-import scala.language.implicitConversions
-import scala.scalajs.js
+import preactile.dsl.*
+import preactile.dsl.css.Styles
+import preactile.impl.Preact.Fragment
+import preactile.impl.Preactile
 
 package object preactile:
   import scala.scalajs.js.JSConverters.*
