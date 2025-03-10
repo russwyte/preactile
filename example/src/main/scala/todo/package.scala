@@ -1,5 +1,4 @@
-package object todo {
-  val ESCAPE = 27
-  val ENTER  = 13
+package todo
 
-}
+val ESCAPE = 27
+val ENTER  = 13

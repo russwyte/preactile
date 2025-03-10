@@ -15,7 +15,7 @@ object App extends TodoComponent[Unit, TodoList] with ClassSelector:
           // spellchecker: disable-next-line
           font("14px 'Helvetica Neue', Helvetica, Arial, sans-serif"),
           lineHeight.em(1.4),
-          background("#e5e5e5"),
+          background(" #e5e5e5)"),
           color("#4d4d4d"),
           minWidth.px(230),
           maxWidth.px(550),
@@ -39,7 +39,7 @@ object App extends TodoComponent[Unit, TodoList] with ClassSelector:
 
     object TodoApp
         extends CssClass(
-          background("#ffffff"),
+          background.rgba(255, 255, 255, 0.67),
           margin("130px", "0", "40px", "0"),
           position.relative,
           boxShadow("0 3px 3px 0 rgba(0, 0, 0, 0.4), 0 25px 50px 0 rgba(0, 0, 0, 0.2)"),
@@ -54,8 +54,8 @@ object App extends TodoComponent[Unit, TodoList] with ClassSelector:
           fontSize.px(100),
           fontWeight(300),
           textAlign.center,
-          color.rgba(175, 47, 47, 0.35),
-          textShadow("3px 3px 5px rgba(0,0,0,0.4)"),
+          color.rgba(208, 50, 50, 0.75),
+          textShadow("3px 3px 5px rgba(51, 29, 29, 0.4)"),
         )
   end css
 

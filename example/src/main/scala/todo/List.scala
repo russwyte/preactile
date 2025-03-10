@@ -60,7 +60,7 @@ object List extends TodoComponent[Unit, TodoList] with ClassSelector:
         A.`type`("checkbox"),
         A.checked(todos.filtered.forall(_.complete)),
         A.onChange { e =>
-          TodosCircuit.unsafe(SetAll(e.target.asInstanceOf[HTMLInputElement].checked))
+          Todos(SetAll(e.target.asInstanceOf[HTMLInputElement].checked))
         },
       ),
       E.label(

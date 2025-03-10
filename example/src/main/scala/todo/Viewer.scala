@@ -80,20 +80,20 @@ object Viewer extends Component[Todo] with ClassSelector:
         styles.Toggle,
         A.`type`("checkbox"),
         A.checked(todo.complete),
-        A.onChange(_ => TodosCircuit.unsafe(Update(todo.copy(complete = !todo.complete)))),
+        A.onChange(_ => Todos(Update(todo.copy(complete = !todo.complete)))),
       ),
       E.label(
         styles.ToggleLabel,
         if todo.complete then styles.Complete else styles.Pending,
         todo.description,
         A.onDoubleClick { _ =>
-          TodosCircuit.unsafe.zoomTo(_.todos).foreach(x => TodosCircuit.unsafe(Update(x.copy(editing = false))))
-          TodosCircuit.unsafe(Update(todo.copy(editing = true)))
+          Todos.zoomTo(_.todos).foreach(x => Todos(Update(x.copy(editing = false))))
+          Todos(Update(todo.copy(editing = true)))
         },
       ),
       E.button(
         styles.Destroy,
-        A.onClick(_ => TodosCircuit.unsafe(Delete(todo))),
+        A.onClick(_ => Todos(Delete(todo))),
       ),
     )
 end Viewer

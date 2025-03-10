@@ -22,6 +22,6 @@ object FilterButton
     FilterButton(
       filter.getClass.getSimpleName.init,
       S.borderColor.rgba(175, 47, 47, 0.2).when(todoList.filter == filter),
-      A.onClick(_ => TodosCircuit.unsafe(ApplyFilter(filter))),
+      A.onClick(_ => Todos(ApplyFilter(filter))),
     )
 end FilterButton

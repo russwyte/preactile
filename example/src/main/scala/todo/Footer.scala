@@ -7,7 +7,7 @@ import todo.model.*
 
 object Footer extends TodoComponent[Unit, TodoList]:
   val lens              = model
-  def change(f: Filter) = TodosCircuit.unsafe(ApplyFilter(f))
+  def change(f: Filter) = Todos(ApplyFilter(f))
 
   object css:
     import S.*
@@ -30,7 +30,7 @@ object Footer extends TodoComponent[Unit, TodoList]:
             height.px(50),
             overflow.hidden,
             boxShadow(
-              "0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,0 17px 2px -6px rgba(0, 0, 0, 0.2)"
+              "0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px rgba(246, 246, 246, 0.51), 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px rgba(246, 246, 246, 0.51),0 17px 2px -6px rgba(0, 0, 0, 0.2)"
             ),
           ),
         )
@@ -88,7 +88,7 @@ object Footer extends TodoComponent[Unit, TodoList]:
         css.ClearCompleted,
         "Clear completed",
         A.onClick { _ =>
-          TodosCircuit.unsafe(ClearCompleted)
+          Todos(ClearCompleted)
         },
       ),
     )

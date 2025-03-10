@@ -13,7 +13,7 @@ object Item extends Component[Todo]:
         extends CssClass(
           position.relative,
           fontSize.px(24),
-          borderBottom("1px solid #ededed"),
+          borderBottom("1px solid rgba(237, 237, 237, 0.59)"),
           Selector(" label")(
             S("word-break")("break-all"),
             padding("15px 15px 15px 60px"),

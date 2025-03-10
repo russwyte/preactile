@@ -4,7 +4,7 @@ import preactile.*
 import preactile.dsl.css.CssClass
 import org.scalajs.dom.HTMLInputElement
 import todo.model.TodoList.actions.{CancelEditing, FinishEditing}
-import todo.model.{Todo, TodosCircuit}
+import todo.model.*
 
 import scala.scalajs.js.timers
 
@@ -33,8 +33,8 @@ object Editor extends StatefulComponent[Todo, String] with InstanceDataSelector 
   end css
 
   override def render(props: Todo, state: String, instance: Instance): VNode =
-    def finishEditing(): Unit = TodosCircuit.unsafe(FinishEditing(props, state))
-    def cancelEditing(): Unit = TodosCircuit.unsafe(CancelEditing(props))
+    def finishEditing(): Unit = Todos(FinishEditing(props, state))
+    def cancelEditing(): Unit = Todos(CancelEditing(props))
     E.input(
       css.Editing,
       A.value(state),
