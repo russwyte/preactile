@@ -48,6 +48,7 @@ object App extends TodoComponent[Unit, TodoList] with ClassSelector:
 
     object Header
         extends CssClass(
+          marginBlock.em(0.67),
           position.absolute,
           top.px(-155),
           width.pct(100),

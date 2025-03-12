@@ -10,16 +10,17 @@ import preactile.dsl.css.Styles.KeyFrames
 import preactile.dsl.css.Styles.MediaQuery
 import preactile.dsl.css.Styles.Selector
 
-abstract class CssClass(ds: DeclarationOrSelector*) extends Attribute:
+abstract class CssClass(members: DeclarationOrSelector*) extends Attribute:
   self =>
-  override val name                       = "class"
-  lazy val className: String              = ClassSelector.makeCssClass(self.getClass.getName)
-  def members: Seq[DeclarationOrSelector] = ds
-  lazy val selector                       = s".$className"
-  override val value: js.Any              = className
-  lazy val sel: Selector                  = Selector(selector, members*)
 
-  def mkString: String =
+  private val className: String = ClassSelector.makeCssClass(self.getClass.getName)
+  private val selector          = s".$className"
+  private val sel: Selector     = Selector(selector, members*)
+
+  override val name          = "class"
+  override val value: js.Any = className
+
+  private def mkString: String =
     val keyframes    = js.Array[KeyFrames]()
     val mediaQueries = js.Array[MediaQuery]()
     val mainCss      = sel.mkString(className, keyframes, mediaQueries)
@@ -33,23 +34,12 @@ abstract class CssClass(ds: DeclarationOrSelector*) extends Attribute:
   end mkString
 
   private def appendStyle(): Unit =
-    try
-      val d                  = org.scalajs.dom.document
-      val style: dom.Element = d.createElement("style")
-      style.setAttribute("data-style-for", className)
-      style.appendChild(d.createTextNode(mkString))
-      Option(d.head.querySelector(s"[data-style-for='$className']")).fold(d.head.appendChild(style))(e =>
-        d.head.replaceChild(style, e)
-      )
-      // AutoPrefixed(mkString).map { css =>
-      //   style.appendChild(d.createTextNode(css))
-      //   Option(d.head.querySelector(s"[data-style-for='$className']")).fold(d.head.appendChild(style))(e =>
-      //     d.head.replaceChild(style, e)
-      //   )
-      // }
-    catch
-      // this should only happen when there is no DOM - like in certain test runners.
-      case e: Throwable => ()
-
+    val d                  = org.scalajs.dom.document
+    val style: dom.Element = d.createElement("style")
+    style.setAttribute("data-style-for", className)
+    style.appendChild(d.createTextNode(mkString))
+    Option(d.head.querySelector(s"[data-style-for='$className']")).fold(d.head.appendChild(style))(e =>
+      d.head.replaceChild(style, e)
+    )
   self.appendStyle()
 end CssClass

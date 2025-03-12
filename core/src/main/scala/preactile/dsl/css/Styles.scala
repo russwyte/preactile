@@ -393,6 +393,7 @@ object Styles:
   object marginRight  extends DS("margin-right") with Auto with LengthPercentage  {}
   object marginTop    extends DS("margin-top") with Auto with LengthPercentage    {}
   object marginBottom extends DS("margin-bottom") with Auto with LengthPercentage {}
+  object marginBlock  extends DS("margin-block") with Auto with LengthPercentage  {}
 
   object textOverflow extends DS("text-overflow"):
     def clip: Declaration     = this("clip")
