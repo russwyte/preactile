@@ -1,9 +1,16 @@
 package todo
 
-import preactile.dsl.css.CssClass
-import preactile.{A, ClassSelector, Component, E, S, VNode}
-import todo.model.TodoList.actions.{Delete, Update}
 import todo.model.*
+import todo.model.TodoList.actions.Delete
+import todo.model.TodoList.actions.Update
+
+import preactile.A
+import preactile.ClassSelector
+import preactile.Component
+import preactile.E
+import preactile.S
+import preactile.VNode
+import preactile.dsl.css.CssClass
 object Viewer extends Component[Todo] with ClassSelector:
 
   object styles:

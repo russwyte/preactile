@@ -1,8 +1,9 @@
 package todo
 
-import preactile.dsl.css.CssClass
-import preactile.*
 import todo.model.Todo
+
+import preactile.*
+import preactile.dsl.css.CssClass
 
 object Item extends Component[Todo]:
 

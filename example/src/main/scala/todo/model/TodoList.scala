@@ -1,7 +1,6 @@
 package todo.model
 
 import conduit.*
-import TodoList.actions.*
 
 case class TodoList(todos: Seq[Todo], filter: Filter, online: Boolean) derives Optics:
   lazy val countIncomplete: Int    = todos.count(!_.complete)
@@ -33,6 +32,8 @@ object Filter:
   case object Active    extends Filter
 
 object TodoList:
+  import todo.model.TodoList.actions.*
+
   val handler = handle[TodoList]:
     case GoOnline                         => update(_.copy(online = true))
     case GoOffline                        => update(_.copy(online = false))

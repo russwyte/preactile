@@ -1,12 +1,14 @@
 package todo
 
+import scala.scalajs.js.timers
+
+import org.scalajs.dom.HTMLInputElement
+import todo.model.*
+import todo.model.TodoList.actions.CancelEditing
+import todo.model.TodoList.actions.FinishEditing
+
 import preactile.*
 import preactile.dsl.css.CssClass
-import org.scalajs.dom.HTMLInputElement
-import todo.model.TodoList.actions.{CancelEditing, FinishEditing}
-import todo.model.*
-
-import scala.scalajs.js.timers
 
 object Editor extends StatefulComponent[Todo, String] with InstanceDataSelector with ClassSelector:
 

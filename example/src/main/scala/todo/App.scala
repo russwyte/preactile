@@ -1,8 +1,14 @@
 package todo
 
-import preactile.dsl.css.CssClass
-import preactile.{ClassSelector, E, S, VNode, fragment, when}
 import todo.model.*
+
+import preactile.ClassSelector
+import preactile.E
+import preactile.S
+import preactile.VNode
+import preactile.dsl.css.CssClass
+import preactile.fragment
+import preactile.when
 
 object App extends TodoComponent[Unit, TodoList] with ClassSelector:
   override def lens = model

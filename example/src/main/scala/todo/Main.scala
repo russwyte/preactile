@@ -1,10 +1,11 @@
 package todo
 
 import org.scalajs.dom.document
+import todo.model.TodosConduit
+
+import zio.*
 
 import preactile.*
-import todo.model.TodosConduit
-import zio.*
 
 object Main extends ZIOAppDefault:
   def run =

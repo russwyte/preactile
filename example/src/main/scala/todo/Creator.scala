@@ -1,10 +1,11 @@
 package todo
 
-import preactile.S.*
-import preactile.*
 import org.scalajs.dom.HTMLInputElement
-import todo.model.TodoList.actions.Add
 import todo.model.*
+import todo.model.TodoList.actions.Add
+
+import preactile.*
+import preactile.S.*
 
 object Creator extends Component[Unit]:
 

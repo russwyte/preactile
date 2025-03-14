@@ -1,10 +1,11 @@
 package todo
 
+import org.scalajs.dom.HTMLInputElement
+import todo.model.*
+import todo.model.TodoList.actions.SetAll
+
 import preactile.*
 import preactile.dsl.css.CssClass
-import org.scalajs.dom.HTMLInputElement
-import todo.model.TodoList.actions.SetAll
-import todo.model.*
 
 object List extends TodoComponent[Unit, TodoList] with ClassSelector:
   override def lens = model

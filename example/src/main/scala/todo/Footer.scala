@@ -1,9 +1,11 @@
 package todo
 
+import todo.model.*
+import todo.model.TodoList.actions.ApplyFilter
+import todo.model.TodoList.actions.ClearCompleted
+
 import preactile.*
 import preactile.dsl.css.CssClass
-import todo.model.TodoList.actions.{ApplyFilter, ClearCompleted}
-import todo.model.*
 
 object Footer extends TodoComponent[Unit, TodoList]:
   val lens              = model

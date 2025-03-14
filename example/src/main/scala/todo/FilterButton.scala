@@ -1,9 +1,10 @@
 package todo
 
-import preactile.S.*
-import preactile.*
-import todo.model.TodoList.actions.ApplyFilter
 import todo.model.*
+import todo.model.TodoList.actions.ApplyFilter
+
+import preactile.*
+import preactile.S.*
 
 object FilterButton
     extends StyledElement(E.li)(
