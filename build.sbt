@@ -52,13 +52,13 @@ lazy val core = project
   .settings(
     name                                  := "preactile-core",
     Compile / npmDependencies += "preact" -> "^10.26.4",
-    Test / requireJsDomEnv                := true,
     installJsdom / version                := "^26.0.0",
+    Test / requireJsDomEnv                := true,
     webpackBundlingMode                   := BundlingMode.LibraryOnly(),
     scalaJSUseMainModuleInitializer       := true,
     webpack / version                     := "5.98.0",
     libraryDependencies ++= Seq(
-      "dev.zio"      %%% "zio"          % zioVersion,
+      "dev.zio"      %%% "zio"          % zioVersion % Test,
       "dev.zio"      %%% "zio-test"     % zioVersion % Test,
       "dev.zio"      %%% "zio-test-sbt" % zioVersion % Test,
       "org.scala-js" %%% "scalajs-dom"  % "2.8.0",
