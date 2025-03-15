@@ -16,7 +16,7 @@ sbt "~example/fastLinkJS"
 ```
 
 ## installation
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.russwyte/preactile_sjs1_3.svg)](https://mvnrepository.com/artifact/io.github.russwyte/preactile_sjs1_3)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.russwyte/preactile_sjs1_3.svg)](https://mvnrepository.com/artifact/io.github.russwyte/preactile)
 
 ```libraryDependencies += "io.github.russwyte" %% "preactile" % "x,y,z"```
 
