@@ -1,25 +1,28 @@
 # preactile
 A scalajs UI library utilizing Preact
 
-To run the example app via vite (require node) open a terminal in the example directory and run:
+To run the example app via vite (requires node) open a terminal in the example directory and run:
 
 ```zsh
 npm run dev
 ```
-If you want to tweak the example and see you changes in real time start sbt and run the command:
+If you want to tweak the example and see your changes in real time start sbt and run the command:
 ```
 ~example/fastLinkJS
 ```
-or just:
+or just run:
 ```
-sbt 
+sbt "~example/fastLinkJS"
 ```
 
 ## installation
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.russwyte/prectile-core_sjs1_3.svg)](https://mvnrepository.com/artifact/io.github.russwyte/prectile-core_sjs1_3)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.russwyte/preactile_sjs1_3.svg)](https://mvnrepository.com/artifact/io.github.russwyte/preactile_sjs1_3)
 
-```libraryDependencies += "io.github.russwyte" %% "preactile-core" % "x,y,z"```
+```libraryDependencies += "io.github.russwyte" %% "preactile" % "x,y,z"```
 
+for conduit component support you will also want
+
+```libraryDependencies += "io.github.russwyte" %% "preactile-conduit" % "x,y,z"```
 
 Copyright 2025 Russ White
 
