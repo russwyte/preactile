@@ -43,14 +43,14 @@ lazy val root = project
   .in(file("."))
   .aggregate(core, preactileConduit, example)
   .settings(
-    name           := "preactile",
+    name           := "preactile-root",
     publish / skip := true,
   )
 
 lazy val core = project
   .enablePlugins(ScalaJSBundlerPlugin)
   .settings(
-    name                                  := "preactile-core",
+    name                                  := "preactile",
     Compile / npmDependencies += "preact" -> "^10.26.4",
     installJsdom / version                := "^26.0.0",
     Test / requireJsDomEnv                := true,

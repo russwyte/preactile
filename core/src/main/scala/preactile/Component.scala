@@ -51,8 +51,6 @@ object Component:
   def apply[Props](renderF: ComponentFunction[Props]): Component[Props] =
     new FunctionalComponent(renderF)
 
-type ComponentFunction[T] = T => VNode
-
 class FunctionalComponent[Props](renderF: ComponentFunction[Props]) extends Component[Props]:
   override def render(props: Props): VNode = renderF(props)
 given Conversion[ComponentFunction[?], Component[?]] = (f: ComponentFunction[?]) => Component(f)
