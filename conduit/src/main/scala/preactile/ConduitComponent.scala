@@ -7,12 +7,13 @@ import preactile.impl.VNodeJS
 
 import conduit.*
 
-trait ConduitComponent[Props, Model <: Product: Optics as optics, State] extends PreactileComponent[Props, State]:
+abstract class ConduitComponent[Props, Model <: Product: Optics as m, State](
+    conduit: Conduit[Model],
+    lensF: Optics[Model] => Lens[Model, State] = identity,
+) extends PreactileComponent[Props, State]:
   theComponent =>
-  val model = optics
-  def conduit: Conduit[Model]
+  val lens = lensF(m)
   def render(props: Props, state: State): VNode
-  def lens: Lens[Model, State]
 
   def shouldUpdate(nextProps: Props, nextState: State, previous: Instance): Boolean =
     previous.state != nextState || previous.props != nextProps

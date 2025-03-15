@@ -13,7 +13,7 @@ object Main extends ZIOAppDefault:
       _ <- ZIO.attempt:
         val e = document.createElement("body")
         document.documentElement.replaceChild(e, document.body)
-        preactile.preact.render(App, document.documentElement, e)
+        preactile.preact.render(App.component, document.documentElement, e)
       c <- TodosConduit.run(false)
     yield c
   end run

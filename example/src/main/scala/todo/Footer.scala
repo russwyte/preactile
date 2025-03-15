@@ -7,8 +7,7 @@ import todo.model.TodoList.actions.ClearCompleted
 import preactile.*
 import preactile.dsl.css.CssClass
 
-object Footer extends TodoComponent[Unit, TodoList]:
-  val lens              = model
+object Footer:
   def change(f: Filter) = Todos(ApplyFilter(f))
 
   object css:
@@ -73,13 +72,13 @@ object Footer extends TodoComponent[Unit, TodoList]:
         )
   end css
 
-  override def render(props: Unit, todoList: TodoList): VNode =
+  val component = TodosConduit.component: todoList =>
 
-    val s = if todoList.countIncomplete > 1 then " items left" else " item left"
+    val itemsLeftMessage = if todoList.countIncomplete > 1 then " items left" else " item left"
 
     E.footer(
       css.Main,
-      E.span(css.TodoCount, E.strong(todoList.countIncomplete), E.span(s)),
+      E.span(css.TodoCount, E.strong(todoList.countIncomplete), E.span(itemsLeftMessage)),
       E.ul(
         css.Filters,
         FilterButton(todoList, Filter.All),
@@ -94,6 +93,5 @@ object Footer extends TodoComponent[Unit, TodoList]:
         },
       ),
     )
-  end render
 
 end Footer

@@ -7,8 +7,7 @@ import todo.model.TodoList.actions.SetAll
 import preactile.*
 import preactile.dsl.css.CssClass
 
-object List extends TodoComponent[Unit, TodoList] with ClassSelector:
-  override def lens = model
+object List:
 
   object css:
     import S.*
@@ -52,27 +51,28 @@ object List extends TodoComponent[Unit, TodoList] with ClassSelector:
         )
   end css
 
-  override def render(props: Unit, todos: TodoList): VNode =
+  val component = TodosConduit.component: todoList =>
     E.section(
       css.Main,
       E.input(
         css.ToggleAll,
         A.id("toggle-all"),
         A.`type`("checkbox"),
-        A.checked(todos.filtered.forall(_.complete)),
+        A.checked(todoList.filtered.forall(_.complete)),
         A.onChange { e =>
           Todos(SetAll(e.target.asInstanceOf[HTMLInputElement].checked))
         },
       ),
       E.label(
         A.`for`("toggle-all"),
-        if todos.filtered.nonEmpty && todos.filtered.forall(_.complete) then S.color("#000000") else S.color("#e6e6e6"),
+        if todoList.filtered.nonEmpty && todoList.filtered.forall(_.complete) then S.color("#000000")
+        else S.color("#e6e6e6"),
       ),
       E.ul(
         css.List,
         S.margin.zero,
         S.padding.zero,
-        todos.filtered.map(x => Item(x).withKey(x.key)),
+        todoList.filtered.map(x => Item(x).withKey(x.key)),
       ),
     )
 end List

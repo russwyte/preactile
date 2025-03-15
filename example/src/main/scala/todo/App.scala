@@ -2,16 +2,10 @@ package todo
 
 import todo.model.*
 
-import preactile.ClassSelector
-import preactile.E
-import preactile.S
-import preactile.VNode
-import preactile.dsl.css.CssClass
-import preactile.fragment
-import preactile.when
+import preactile.*
+import preactile.dsl.css.*
 
-object App extends TodoComponent[Unit, TodoList] with ClassSelector:
-  override def lens = model
+object App:
 
   object css:
     import S.*
@@ -66,7 +60,7 @@ object App extends TodoComponent[Unit, TodoList] with ClassSelector:
         )
   end css
 
-  override def render(props: Unit, l: TodoList): VNode =
+  val component = TodosConduit.component: todoList =>
     E.body(
       css.App,
       E.section(
@@ -79,10 +73,10 @@ object App extends TodoComponent[Unit, TodoList] with ClassSelector:
             ),
             Creator,
           ),
-          when(l.todos.nonEmpty) {
+          when(todoList.todos.nonEmpty) {
             fragment(
-              List,
-              Footer,
+              List.component,
+              Footer.component,
             )
           },
         ),
